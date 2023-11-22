@@ -58,4 +58,18 @@ public abstract class Lenkeliste <E> implements Liste <E>{
 
         return tmp.data;
     }
+
+    @Override 
+    public String toString(){
+        String str = "[";
+        Node peker = start;
+        
+        while (peker != null){
+            str += peker.data + ",";
+            peker = peker.neste;
+        }
+        str += "\b]";
+
+        return str;
+    }
 }
