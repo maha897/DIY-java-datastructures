@@ -50,13 +50,16 @@ public abstract class Lenkeliste <E> implements Liste <E>{
     }
 
     @Override
-    public E fjern(){
+    public E fjern() throws UgyldigListeIndeks{
         // Fjerner det første elementet i listen og returnerer det.
-
-        Node tmp = start;
-        start = start.neste;
-
-        return tmp.data;
+        if (start != null){
+            Node tmp = start;
+            start = start.neste;
+                
+            return tmp.data;
+        } else {
+            throw new UgyldigListeIndeks(0);
+        }
     }
 
     @Override 

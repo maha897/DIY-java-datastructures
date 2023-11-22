@@ -92,7 +92,7 @@ class TestStabel {
 	    k.fjern();
 	    p("Feilen ble ikke oppdaget");
 	    ++antFeil;
-	} catch (UgyldigListeindeks e) {
+	} catch (UgyldigListeIndeks e) {
 	    p("OK");  ++antOK;
 	}
 
