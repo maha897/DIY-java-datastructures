@@ -6,10 +6,11 @@ public class Stabel<E> extends Lenkeliste<E>{
     @Override
     public void leggTil(E x){
         // Nye elementer legges til først i listen.
-        
+
         Node node = new Node(x);
         node.neste = start;
         if (start != null) start.forrige = node;
+        else siste = node;
         start = node;
     }
 }
