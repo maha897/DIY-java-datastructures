@@ -37,17 +37,9 @@ public abstract class Lenkeliste <E> implements Liste <E>{
         } else {
             siste.neste = node;
             
-            /* 
-            Node peker = start;
-            while (peker.neste != null){
-                peker = peker.neste;
-            }
-
-            peker.neste = new Node(x);
-            */
-        }
         node.forrige = siste;
         siste = node;
+        }
     }
 
     @Override
