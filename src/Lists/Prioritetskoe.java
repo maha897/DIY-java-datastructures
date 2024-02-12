@@ -1,8 +1,5 @@
 package src.Lists;
 
-import java.util.Collections;
-import java.util.List;
-
 public class Prioritetskoe<T extends Comparable<T>> extends IndeksertListe<T>{
     @Override
     public void leggTil(T x) {
