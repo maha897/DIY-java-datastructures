@@ -1,3 +1,8 @@
+package src.Tests;
+
+import src.Lists.IndeksertListe;
+import src.UgyldigListeIndeks;
+
 class TestIndeksertListe {
     private static void info (int nr, String tekst) {
 	System.out.print("Test " + nr + " " + tekst + " ... ");
@@ -7,8 +12,8 @@ class TestIndeksertListe {
 	System.out.println(s);
     }
 
-    private static boolean test (int nr, String tekst, 
-				 IndeksertListe<Integer> k, int[] fasit) {
+    private static boolean test (int nr, String tekst,
+								 IndeksertListe<Integer> k, int[] fasit) {
 	info(nr, tekst);
 	int fLen = fasit.length;
 	int kLen = k.stoerrelse();
@@ -45,7 +50,7 @@ class TestIndeksertListe {
 	// Test 1
 	IndeksertListe<Integer> k = new IndeksertListe<>();
 	int[] f = new int[] {};
-	if (test(1, "Tom IndeksertListe", k, f)) {
+	if (test(1, "Tom java.Lists.IndeksertListe", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
@@ -59,7 +64,7 @@ class TestIndeksertListe {
 	k.leggTil(3, 104);
 	k.leggTil(3, 105);
 	f = new int[] { 103, 101, 102, 105, 104 };
-	if (test(2, "IndeksertListe med 5 elementer", k, f)) {
+	if (test(2, "java.Lists.IndeksertListe med 5 elementer", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
@@ -102,7 +107,7 @@ class TestIndeksertListe {
 	    k.sett(1, 502);
 	    p("Ulovlig indeks ble ikke oppdaget");
 	    ++antFeil;
-	} catch (UgyldigListeindeks e) {
+	} catch (UgyldigListeIndeks e) {
 	    p("OK");  ++antOK;
 	}
 
@@ -114,7 +119,7 @@ class TestIndeksertListe {
 	    k.fjern(1);
 	    p("Gal indeks ved fjerning ble ikke oppdaget");
 	    ++antFeil;
-	} catch (UgyldigListeindeks e) {
+	} catch (UgyldigListeIndeks e) {
 	    p("OK");  ++antOK;
 	}
 

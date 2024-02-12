@@ -1,4 +1,6 @@
-public class Stabel<E> extends Lenkeliste<E>{
+package src.Lists;
+
+public class Stabel<E> extends Lenkeliste<E> {
     /*-- Last in, first out --
      * Nye elementer legges til først i listen, og fjerning skjer første element i listen.
     */

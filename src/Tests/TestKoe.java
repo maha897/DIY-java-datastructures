@@ -1,9 +1,14 @@
+package src.Tests;
+
+import src.UgyldigListeIndeks;
+import src.Lists.Koe;
+
 class TestKoe {
     private static void info (int nr, String tekst) {
 	System.out.print("Test " + nr + " " + tekst + " ... ");
     }
     
-    private static boolean test (int nr, String tekst, Koe<String> k, 
+    private static boolean test (int nr, String tekst, Koe<String> k,
 				 String[] fasit) {
 	info(nr, tekst);
 	int fLen = fasit.length;
@@ -45,7 +50,7 @@ class TestKoe {
 	// Test 1
 	Koe<String> k = new Koe<>();
 	String[] f = new String[] {};
-	if (test(1, "Tom Koe", k, f)) {
+	if (test(1, "Tom java.Lists.Koe", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
@@ -55,7 +60,7 @@ class TestKoe {
 	k = new Koe<>();
 	k.leggTil("Anne");  k.leggTil("Berit");  k.leggTil("Chris");
 	f = new String[] {"Anne", "Berit", "Chris"};
-	if (test(2, "Koe med 3 elementer", k, f)) {
+	if (test(2, "java.Lists.Koe med 3 elementer", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;

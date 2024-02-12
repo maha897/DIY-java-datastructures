@@ -1,10 +1,15 @@
-public abstract class Lenkeliste <E> implements Liste <E>{
+package src.Lists;
+
+import src.UgyldigListeIndeks;
+
+public abstract class Lenkeliste <E> implements Liste<E> {
     /*  Nye elementer settes inn på slutten av listen og tas ut fra starten
     slik at det elementet som ble satt inn først, er det første som blir tatt ut.
     */
 
     protected class Node{
-        Node neste = null, forrige = null;
+        Node neste = null;
+        Node forrige = null;
         E data;
 
         Node (E x){
@@ -12,7 +17,8 @@ public abstract class Lenkeliste <E> implements Liste <E>{
         }
     }
 
-    protected Node start = null, siste = null;
+    protected Node start = null;
+    protected Node siste = null;
     
     @Override
     public int stoerrelse(){
@@ -34,6 +40,7 @@ public abstract class Lenkeliste <E> implements Liste <E>{
         Node node = new Node(x);
         if (start == null){
             start = node;
+            siste = node;
         } else {
             siste.neste = node;
             
@@ -51,7 +58,7 @@ public abstract class Lenkeliste <E> implements Liste <E>{
     }
 
     @Override
-    public E fjern() throws UgyldigListeIndeks{
+    public E fjern() throws UgyldigListeIndeks {
         // Fjerner det første elementet i listen og returnerer det.
 
         if (start != null){

@@ -1,9 +1,14 @@
-class TestPrioritetskoe {
+package src.Tests;
+
+import src.Lists.Stabel;
+import src.UgyldigListeIndeks;
+
+class TestStabel {
     private static void info (int nr, String tekst) {
 	System.out.print("Test " + nr + " " + tekst + " ... ");
     }
     
-    private static boolean test (int nr, String tekst, Prioritetskoe<String> k, String[] fasit) {
+    private static boolean test (int nr, String tekst, Stabel<String> k, String[] fasit) {
 	info(nr, tekst);
 	int fLen = fasit.length;
 	int kLen = k.stoerrelse();
@@ -42,59 +47,57 @@ class TestPrioritetskoe {
 	int antOK = 0, antFeil = 0;
 
 	// Test 1
-	Prioritetskoe<String> k = new Prioritetskoe<>();
+	Stabel<String> k = new Stabel<>();
 	String[] f = new String[] {};
-	if (test(1, "Tom Prioritetskoe", k, f)) {
+	if (test(1, "Tom java.Lists.Stabel", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
 	}
 
 	// Test 2
-	k = new Prioritetskoe<>();
+	k = new Stabel<>();
 	k.leggTil("Anne");  k.leggTil("Berit");  k.leggTil("Chris");
-	f = new String[] {"Anne", "Berit", "Chris"};
-	if (test(2, "Prioritetskoe med 3 elementer", k, f)) {
+	f = new String[] {"Chris", "Berit", "Anne"};
+	if (test(2, "java.Lists.Stabel med 3 elementer", k, f)) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
 	}
 
 	// Test 3
-	k = new Prioritetskoe<>();
-	k.leggTil("B");  k.leggTil("D");  k.leggTil("C");  k.leggTil("A");
-	k.leggTil("Z");  k.leggTil("X");
+	k = new Stabel<>();
+	k.leggTil("A");  k.leggTil("B");  k.leggTil("C");  k.leggTil("D");
 	k.fjern();
 	String h1 = k.hent();
 	info(3, "Bruk av hent()");
-	if (h1.equals("B")) {
+	if (h1.equals("C")) { 
 	    p("OK");  ++antOK;
 	} else {
-	    p("hent() fra {\"B\", \"C\", \"D\", \"X\", \"Z\"} ga \"" + h1 + 
-	      "\" og ikke \"B\"");
+	    p("hent() fra {\"C\", \"B\", \"A\"} ga \"" + h1 + "\" og ikke \"C\"");
 	    ++antFeil;
 	}
 	    
 	// Test 4
-	k = new Prioritetskoe<>();
-	k.leggTil("Z");  k.leggTil("Y");
+	k = new Stabel<>();
+	k.leggTil("Y");  k.leggTil("Z");
 	k.fjern();  k.fjern();
-	k.leggTil("W");  k.leggTil("V");  k.leggTil("X");  k.leggTil("U");
-	if (test(4, "Innsetting og fjerning", k, new String[] {"U", "V", "W", "X"})) {
+	k.leggTil("U");  k.leggTil("V");  k.leggTil("W");  k.leggTil("X");
+	if (test(4, "Innsetting og fjerning", k, new String[] {"X", "W", "V", "U"})) {
 	    p("OK");  ++antOK;
 	} else {
 	    ++antFeil;
 	}
 
 	// Test 5
-	k = new Prioritetskoe<>();
+	k = new Stabel<>();
 	k.leggTil("Noe");  k.fjern();
 	info(5, "Fjerning fra tom liste");
 	try {
 	    k.fjern();
 	    p("Feilen ble ikke oppdaget");
 	    ++antFeil;
-	} catch (UgyldigListeindeks e) {
+	} catch (UgyldigListeIndeks e) {
 	    p("OK");  ++antOK;
 	}
 
